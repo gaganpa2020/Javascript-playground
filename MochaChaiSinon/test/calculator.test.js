@@ -17,9 +17,7 @@ describe('calculator', ()=>{
         
         let add = sinon.stub(addition, "add");
         add.withArgs(sinon.match.any, sinon.match.any).yields(5);
-        
-        sinon.createStubInstance()
-
+    
         calculator.cal(1 ,4 , function(result){
             expect(result).to.equal(5);
             done();            
