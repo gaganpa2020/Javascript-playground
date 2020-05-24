@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import {Car} from '../classes/Car.js';
 import {Drone} from '../classes/Drone.js';
 import {DtaError, DataError} from './data-error.js';
@@ -6,6 +7,7 @@ export class FleetDataService{
     constructor(){
         this.cars = [];
         this.drone = [];
+        this.all = []
         this.errors = [];
     }
 
@@ -28,6 +30,8 @@ export class FleetDataService{
                     break;
             }
         }
+
+        this.all = _.union(this.cars, this.drone);
     }
 
     loadCar(car){
@@ -47,6 +51,7 @@ export class FleetDataService{
             let d = new Drone(drone.license, drone.model, drone.latLong);
             d.airTimeHours = drone.airTimeHours;
             d.base = drone.base;
+            return d;
        }
        catch(e){
             this.errors.push(new DataError('error loading drone', drone));
