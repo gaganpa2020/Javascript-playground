@@ -32,7 +32,7 @@ export class FleetDataService{
 
     loadCar(car){
         try{
-            let c = new Car(car.license, car.model, car.latlong);
+            let c = new Car(car.license, car.model, car.latLong);
             c.miles = car.miles;
             c.make = car.make;
             return c;
@@ -44,7 +44,7 @@ export class FleetDataService{
 
     loadDrone(drone){
        try {
-            let d = new Drone(drone.license, drone.model, drone.latlong);
+            let d = new Drone(drone.license, drone.model, drone.latLong);
             d.airTimeHours = drone.airTimeHours;
             d.base = drone.base;
        }

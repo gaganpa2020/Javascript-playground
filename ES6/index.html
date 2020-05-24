@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Drones</title>
@@ -7,11 +8,14 @@
     <script src="node_modules/traceur/bin/traceur.js"></script>
     <script src="node_modules/systemjs/dist/system.js"></script>
     <script src="node_modules/material-design-lite/dist/material.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFr7M6l5u_9-YleDzYtF45TXFSo-QrkYU&callback=googleMapsCallBack&libraries=&v=weekly"></script>
   </head>
   <body>
       <script>
+        function googleMapsCallBack(){
           System.paths['jquery'] = './node_modules/jquery/dist/jquery.js';
           System.import('src/app.js');
+        }
       </script> 
   </body>
 </html>
