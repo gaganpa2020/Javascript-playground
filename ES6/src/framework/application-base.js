@@ -8,7 +8,12 @@ export class ApplicationBase {
         this.routeMap = {};
         this.defaultRoute = null;
     }
-    
+    activateRoute(route){
+        let content = this.titleBar.element.find('.page-content');
+        content.empty();
+        this.routeMap[route].appendToElement(content);
+    }
+
     addRoute(id, pageObject, defaultRoute = false){
         this.titleBar.addLink(id, '');
 
@@ -21,5 +26,14 @@ export class ApplicationBase {
 
     show(element) {
         this.titleBar.appendToElement(element);
+
+        this.titleBar.element.find('.mdl-navigation__link').click((event)=>{
+            let route = event.target.innerHTML;
+            this.activateRoute(route.trim());
+        });
+
+        if(this.defaultRoute){
+            this.activateRoute(this.defaultRoute);
+        }
     }
 }

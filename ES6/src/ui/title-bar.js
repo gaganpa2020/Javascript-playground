@@ -20,8 +20,7 @@ export class TitleBar extends BaseElement{
 
         for(let link of this.links){
             links += `
-                <a class="mdl-navigation__link"
-                href="${link.href}">${link.title}</a>
+                <a class="mdl-navigation__link">${link.title}</a>
             `;
         }
 
