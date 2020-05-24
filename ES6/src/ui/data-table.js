@@ -15,7 +15,7 @@ export class DataTable extends BaseElement{
         for (let h of this.headers){
             thTags += `<th class="mdl-data-table__cell--non-numeric">${h}</th>\r`;
         }
-
+        
         for (let row of this.data){
             trTags += `<tr>`;
             let tdTags = '';

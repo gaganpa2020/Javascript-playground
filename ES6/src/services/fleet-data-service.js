@@ -19,7 +19,7 @@ export class FleetDataService{
                     this.cars.push(car);
                     break;
 
-                case 'drone':
+                case 'drone':                    
                     let drone = this.loadDrone(data);
                     this.drone.push(drone);
                     break;

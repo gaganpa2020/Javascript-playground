@@ -4,6 +4,8 @@ import {FleetDataService} from './services/fleet-data-service.js';
 import {ApplicationBase} from './framework/application-base.js';
 import {HomePage} from './home-page.js';
 import {CarsPage} from './cars-page.js';
+import {DronePage} from './drone-page.js';
+import {MapPage} from './map-page.js';
 
 export class App extends ApplicationBase {
     
@@ -14,8 +16,8 @@ export class App extends ApplicationBase {
 
         this.addRoute('Home', new HomePage(), true);
         this.addRoute('Cars', new CarsPage(), false);
-        this.addRoute('Drone', null, false);
-        this.addRoute('Map', null, false);
+        this.addRoute('Drone', new DronePage(), false);
+        this.addRoute('Map', new MapPage(), false);
     }
 }
 
