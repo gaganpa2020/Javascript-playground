@@ -1,3 +1,5 @@
+// Create a button & fetching the state variables.
+
 function logRandom(){
     console.log(Math.random());
   }
