@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import * as Redux from 'redux';
+import * as ReactRedux from 'react-redux';
 import './index.css';
 import AuthorQuiz from './AuthorQuiz';
 import * as serviceWorker from './serviceWorker';
@@ -64,6 +66,11 @@ function getTurnData(authors){
   };
 }
 
+function reducer(state, action){
+  return state;  
+}
+
+let store = Redux.createStore(reducer);
 let state = resetState();
 
 function onAnswerSelected(answer){  
@@ -85,7 +92,10 @@ function onContinue(){
 }
 
 function App(){
-  return (<AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} onContinue={onContinue} />);
+  return (
+    <ReactRedux.Provider store={store}>
+      <AuthorQuiz {...state} onAnswerSelected={onAnswerSelected} onContinue={onContinue} />
+    </ReactRedux.Provider> );
 }
 
 const AddAuthorWrapper = withRouter(({history}) =>
