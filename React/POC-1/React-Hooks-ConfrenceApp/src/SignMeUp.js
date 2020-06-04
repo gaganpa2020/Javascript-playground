@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import {ConfigContext} from './App';
+import { ConfigContext } from "./App";
 
 const SignMeUp = ({ signupCallback }) => {
   useEffect(() => {
-    console.log(`SignMeUp:useEffect called`);
+    //console.log(`SignMeUp:useEffect called`);
   });
 
   const [email, setEmail] = useState();
@@ -42,7 +42,18 @@ const SignMeUp = ({ signupCallback }) => {
 
   //console.log("src/SignMeUp called");
 
-  return context.showSignMeUp === false? null: (
+  if (context.loggedInUserEmail) {
+    return (
+      <div className="container">
+        <div className="content">
+          <span>Logged in User Email: {context.loggedInUserEmail}</span>&nbsp;&nbsp;
+          <a href='/logout' >Logout</a>
+        </div>
+      </div>
+    );
+  }
+
+  return context.showSignMeUp === false ? null : (
     <div className="container">
       <div>
         <ToastContainer />
@@ -68,6 +79,7 @@ const SignMeUp = ({ signupCallback }) => {
           >
             {buttonText}
           </button>
+          &nbsp;&nbsp;<a href='/login' >Login</a>
         </div>
       </div>
     </div>
