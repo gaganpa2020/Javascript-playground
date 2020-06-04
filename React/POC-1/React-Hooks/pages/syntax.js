@@ -9,7 +9,7 @@ const syntax = () => {
         return ()=> {
             console.log('in useEffect cleanup');
         };
-    }, []);
+    }, [checkBoxValue]);
 
     return(
         <div></div>
