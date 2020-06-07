@@ -4,6 +4,9 @@ import { render } from "react-dom";
 import App from "./components/App";
 import { BrowserRouter as Router } from "react-router-dom";
 
-render(<Router>
+render(
+  <Router>
     <App />
-    </Router>, document.getElementById("root"));
+  </Router>,
+  document.getElementById("root")
+);

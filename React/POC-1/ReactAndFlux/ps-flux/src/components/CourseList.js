@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function CourseList(props) {
   return (
@@ -18,7 +18,7 @@ function CourseList(props) {
             <tr key={course.id}>
               <td>
                 <Link to={"/course/" + course.slug}>{course.title}</Link>
-                </td>
+              </td>
               <td>{course.authorId}</td>
               <td>{course.category}</td>
             </tr>
@@ -38,10 +38,6 @@ CourseList.propTypes = {
       category: PropTypes.string.isRequired
     })
   ).isRequired
-};
-
-CourseList.defaultProps = {
-  courses: []
 };
 
 export default CourseList;
