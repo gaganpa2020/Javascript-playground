@@ -19,13 +19,22 @@ class App extends Component {
           <Route
             path="/"
             exact
-            render={props => <Home auth={this.auth} {...props} />}
+            render={(props) => <Home auth={this.auth} {...props} />}
           />
           <Route
             path="/callback"
-            render={props => <Callback auth={this.auth} {...props} />}
+            render={(props) => <Callback auth={this.auth} {...props} />}
           />
-          <Route path="/profile" component={Profile} />
+          <Route
+            path="/profile"
+            render={(props) =>
+              this.auth.isAuthenticated() ? (
+                <Profile auth={this.auth} {...props}></Profile>
+              ) : (
+                <Redirect to="/"></Redirect>
+              )
+            }
+          />
         </div>
       </>
     );
