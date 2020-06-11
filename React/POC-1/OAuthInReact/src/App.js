@@ -11,22 +11,19 @@ class App extends Component {
     super(props);
     this.auth = new Auth(this.props.history);
   }
-
   render() {
     return (
       <>
-        <Nav />
+        <Nav auth={this.auth} />
         <div className="body">
           <Route
             path="/"
             exact
-            render={(props) => <Home auth={this.auth} {...props}></Home>}
+            render={props => <Home auth={this.auth} {...props} />}
           />
           <Route
             path="/callback"
-            render={(props) => (
-              <Callback auth={this.auth} {...props}></Callback>
-            )}
+            render={props => <Callback auth={this.auth} {...props} />}
           />
           <Route path="/profile" component={Profile} />
         </div>

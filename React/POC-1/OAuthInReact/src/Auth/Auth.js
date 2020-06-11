@@ -1,5 +1,4 @@
 import auth0 from "auth0-js";
-import { json } from "express";
 
 export default class Auth {
   constructor(history) {
@@ -9,7 +8,7 @@ export default class Auth {
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
       redirectUri: process.env.REACT_APP_AUTH0_CALLBACK_URL,
       responseType: "token id_token",
-      scope: "openid profile email",
+      scope: "openid profile email"
     });
   }
 
@@ -18,7 +17,6 @@ export default class Auth {
   };
 
   handleAuthentication = () => {
-    debugger;
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
@@ -31,16 +29,20 @@ export default class Auth {
     });
   };
 
-  setSession = (authResult) => {
+  setSession = authResult => {
     console.log(authResult);
-
-    //set the time that the access token will expire.
-    const expireAt = JSON.stringify(
+    // set the time that the access token will expire
+    const expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
 
     localStorage.setItem("access_token", authResult.accessToken);
     localStorage.setItem("id_token", authResult.idToken);
-    localStorage.setItem(("expires_at", expireAt));
+    localStorage.setItem("expires_at", expiresAt);
   };
+
+  isAuthenticated() {
+    const expiresAt = JSON.parse(localStorage.getItem("expires_at"));
+    return new Date().getTime() < expiresAt;
+  }
 }
