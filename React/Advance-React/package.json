@@ -1,0 +1,17 @@
+{
+  "name": "Advance-React",
+  "version": "1.0.0",
+  "description": "Advance React ",
+  "main": "lib/server.js",
+  "author": "Gagan",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-react": "^7.20.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1"
+  }
+}
