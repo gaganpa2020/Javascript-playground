@@ -2,6 +2,7 @@
   "name": "advance-React",
   "version": "1.0.0",
   "description": "Advance React ",
+  "type": "module",
   "main": "lib/server.js",
   "author": "Gagan",
   "license": "MIT",
