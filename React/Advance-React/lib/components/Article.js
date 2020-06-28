@@ -26,8 +26,8 @@ const styles = {
 const dateDisplay = (dateString) => new Date(dateString).toDateString();
 
 const Article = (props) => {
-  const { article, actions } = props;
-  const author = actions.lookupAuthor(article.authorId);
+  const { article, store } = props;
+  const author = store.lookupAuthor(article.authorId);
 
   return (
     <div style={styles.article}>
