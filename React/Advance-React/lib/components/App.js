@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import DataApi from '../DataApi';
 import { data } from '../testdata.json';
 import ArticleList from './ArticleList';
@@ -14,11 +14,15 @@ export default class App extends React.Component {
     };
   }
 
+  articleActions = {
+    lookupAuthor: (authorId) => this.state.authors[authorId],
+  };
+
   render() {
     return (
       <ArticleList
         articles={this.state.articles}
-        authors={this.state.authors}
+        articleActions={this.articleActions}
       ></ArticleList>
     );
   }
