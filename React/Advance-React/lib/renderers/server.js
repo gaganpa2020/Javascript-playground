@@ -13,7 +13,13 @@ const serverRender = async () => {
     articles: api.getArticles(),
     authors: api.getAuthors(),
   };
-  return ReactDOMServer.renderToString(<App initialData={initialData} />);
+
+  return {
+    initialMarkup: ReactDOMServer.renderToString(
+      <App initialData={initialData} />
+    ),
+    initialData: initialData,
+  };
 };
 
 export default serverRender;

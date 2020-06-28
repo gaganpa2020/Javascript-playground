@@ -1,4 +1,4 @@
-import React, { useDebugValue } from 'react';
+import React from 'react';
 import DataApi from '../state-api';
 import axios from 'axios';
 import ArticleList from './ArticleList';
@@ -11,16 +11,16 @@ export default class App extends React.Component {
     authors: this.props.initialData.authors,
   };
 
-  async componentDidMount() {
-    //fetch the data.
-    const resp = await axios.get('/data');
-    const api = new DataApi(resp.data);
+  // async componentDidMount() {
+  //   //fetch the data.
+  //   const resp = await axios.get('/data');
+  //   const api = new DataApi(resp.data);
 
-    this.setState(() => ({
-      articles: api.getArticles(),
-      authors: api.getAuthors(),
-    }));
-  }
+  //   this.setState(() => ({
+  //     articles: api.getArticles(),
+  //     authors: api.getAuthors(),
+  //   }));
+  // }
 
   articleActions = {
     lookupAuthor: (authorId) => this.state.authors[authorId],
