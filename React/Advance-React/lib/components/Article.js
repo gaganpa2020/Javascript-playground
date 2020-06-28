@@ -28,9 +28,7 @@ const styles = {
 const dateDisplay = (dateString) => new Date(dateString).toDateString();
 
 const Article = (props) => {
-  const { article, store } = props;
-  const author = store.lookupAuthor(article.authorId);
-
+  const { article, author } = props;
   return (
     <div style={styles.article}>
       <div style={styles.title}>{article.title}</div>
@@ -53,4 +51,12 @@ Article.propTypes = {
   }),
 };
 
-export default storeProvider(Article);
+//const author = store.lookupAuthor(article.authorId);
+
+function extraProps(store, originalProps) {
+  return {
+    author: store.lookupAuthor(originalProps.article.authorId),
+  };
+}
+
+export default storeProvider(extraProps)(Article);
