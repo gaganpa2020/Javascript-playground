@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import storeProvider from './storeProvider';
 
 const styles = {
   article: {
@@ -52,4 +53,4 @@ Article.propTypes = {
   }),
 };
 
-export default Article;
+export default storeProvider(Article);
