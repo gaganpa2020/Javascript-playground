@@ -1,7 +1,7 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
 
-class SearchBar extends React.Component {
+class SearchBar extends React.PureComponent {
   state = {
     searchTerm: '',
   };

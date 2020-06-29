@@ -1,6 +1,12 @@
 import React from 'react';
 import ArticleList from './ArticleList';
 import PropTypes from 'prop-types';
+import Perf from 'react-addons-perf';
+
+if (typeof window != 'undefined') {
+  window.Perf = Perf;
+}
+
 import SearchBar from './SearchBar';
 import pickBy from 'lodash.pickby';
 import Timestamp from './Timestamp';
