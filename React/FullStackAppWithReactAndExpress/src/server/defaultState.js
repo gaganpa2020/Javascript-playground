@@ -1,53 +1,62 @@
 export const defaultState = {
-    users: [{
-        id:"UI",
-        name: "DEV"
+    users:[{
+        id:"U1",
+        name:"Dev",
+        friends:[`U2`]
     },{
         id:"U2",
-        name: "DEV"
+        name:"C. Eeyo",
+        friends:[]
     }],
     groups:[{
-        name: "To Do",
+        name:"To Do",
         id:"G1",
-        owner: "U1"
+        owner:"U1"
     },{
-        name: "To Do",
+        name:"Doing",
         id:"G2",
-        owner: "U2"
-    }],
+        owner:"U1"
+    },{
+        name:"Done",
+        id:"G3",
+        owner:"U1"
+    }
+    ],
     tasks:[{
-        name:"Do tests - task 1",
+        name:"Refactor tests",
         id:"T1",
         group:"G1",
-        owner: "U1",
-        isComplete:false
+        owner:"U1",
+        isComplete:false,
     },{
-        name:"Do tests - task 2",
+        name:"Meet with CTO",
         id:"T2",
-        group:"G2",
-        owner: "U2",
-        isComplete:false
+        group:"G1",
+        owner:"U1",
+        isComplete:true,
     },{
-        name:"Do tests - task 3",
+        name:"Compile ES6",
         id:"T3",
         group:"G2",
-        owner: "U2",
-        isComplete:false
+        owner:"U2",
+        isComplete:false,
+    },{
+        name:"Update component snapshots",
+        id:"T4",
+        group:"G2",
+        owner:"U1",
+        isComplete:true,
+    },{
+        name:"Production optimizations",
+        id:"T5",
+        group:"G3",
+        owner:"U1",
+        isComplete:false,
     }],
-    comments: [{
-        owner: "U1",
+    comments:[{
+        owner:"U1",
         id:"C1",
         task:"T1",
-        content:"Great Work!!!"
-    },{
-        owner: "U1",
-        id:"C2",
-        task:"T1",
-        content:"Great Work-C2!!!"
-    },{
-        owner: "U2",
-        id:"C3",
-        task:"T2",
-        content:"Great Work!!!-C3"
+        content:"Great work!"
     }]
-}
+};
